@@ -15,6 +15,7 @@ package com.clivern.asynq.event;
 
 import static org.junit.Assert.*;
 
+import com.clivern.asynq.exception.MissingEvent;
 import org.junit.Test;
 
 /** Publisher Test Cases */
@@ -23,7 +24,7 @@ public class PublisherTest {
     private int count = 1;
 
     @Test
-    public void testAttach() {
+    public void testAttach() throws MissingEvent {
         MessagePublisher messagePublisher = new MessagePublisher();
 
         Observer callback1 =

@@ -13,6 +13,7 @@
  */
 package com.clivern.asynq.event;
 
+import com.clivern.asynq.exception.MissingEvent;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,9 +30,9 @@ public class MessagePublisher implements PublisherInterface {
     }
 
     @Override
-    public void notify(String event, Message message) {
+    public void notify(String event, Message message) throws MissingEvent {
         if (observers.get(event) == null) {
-            return;
+            throw new MissingEvent(String.format("Event %s is missing", event));
         }
 
         for (Observer observer : observers.get(event)) {

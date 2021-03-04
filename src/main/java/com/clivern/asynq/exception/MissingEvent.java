@@ -11,27 +11,17 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.asynq.event;
+package com.clivern.asynq.exception;
 
-import com.clivern.asynq.exception.MissingEvent;
-
-/** PublisherInterface interface */
-public interface PublisherInterface {
+/** MissingEvent Class */
+public class MissingEvent extends Exception {
 
     /**
-     * Attach observer to an event
+     * Class Constructor
      *
-     * @param event the event
-     * @param observer the new observer
+     * @param message the exception message
      */
-    public void attach(String event, Observer observer);
-
-    /**
-     * Notify event observers
-     *
-     * @param event the event
-     * @param message the message
-     * @throws MissingEvent throws exception if event is missing
-     */
-    public void notify(String event, Message message) throws MissingEvent;
+    public MissingEvent(String message) {
+        super(message);
+    }
 }
