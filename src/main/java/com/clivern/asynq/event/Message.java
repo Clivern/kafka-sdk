@@ -15,15 +15,16 @@ package com.clivern.asynq.event;
 
 /** Message Class */
 public class Message {
-    final String messageContent;
+
+    private String content;
 
     /**
      * Class Constructor
      *
-     * @param message the message
+     * @param content the message content
      */
-    public Message(String message) {
-        this.messageContent = message;
+    public Message(String content) {
+        this.content = content;
     }
 
     /**
@@ -31,7 +32,7 @@ public class Message {
      *
      * @return the message content
      */
-    public String getMessageContent() {
-        return messageContent;
+    public String getContent() {
+        return this.content;
     }
 }

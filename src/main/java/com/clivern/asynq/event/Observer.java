@@ -13,6 +13,14 @@
  */
 package com.clivern.asynq.event;
 
+/** Observer interface */
+@FunctionalInterface
 public interface Observer {
-    public void update(Message m);
+
+    /**
+     * Trigger Observer Logic
+     *
+     * @param message the message
+     */
+    public void trigger(Message message);
 }

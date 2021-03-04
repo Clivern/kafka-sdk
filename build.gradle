@@ -184,13 +184,14 @@ repositories {
 
 ext {
   junitVersion = "4.12"
-  rabbitmqVersion = "5.12.0"
-  redisVersion = "3.5.2"
+  kafkaClientsVersion = "2.8.0"
+  kafkaStreamsVersion = "2.8.0"
 }
 
 dependencies {
-  compile 'com.rabbitmq:amqp-client:$rabbitmqVersion'
-  compile 'redis.clients:jedis:$redisVersion'
+  // Kafka clients and streams package
+  compile "org.apache.kafka:kafka-clients:$kafkaClientsVersion"
+  compile "org.apache.kafka:kafka-streams:$kafkaStreamsVersion"
 
   // Use JUnit test framework
   testImplementation "junit:junit:$junitVersion"

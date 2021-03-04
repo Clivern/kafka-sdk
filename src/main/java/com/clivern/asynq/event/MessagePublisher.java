@@ -13,28 +13,29 @@
  */
 package com.clivern.asynq.event;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 /** Message Publisher Class */
-public class MessagePublisher implements SubjectInterface {
+public class MessagePublisher implements PublisherInterface {
 
     private HashMap<String, List<Observer>> observers = new HashMap<>();
 
     @Override
-    public void attach(Observer observer) {
-        this.observers.add(observer);
+    public void attach(String event, Observer observer) {
+        this.observers.putIfAbsent(event, new ArrayList<Observer>());
+        this.observers.get(event).add(observer);
     }
 
     @Override
-    public void detach(String event, Observer observer) {
-        this.observers.get(event).remove(observer);
-    }
+    public void notify(String event, Message message) {
+        if (observers.get(event) == null) {
+            return;
+        }
 
-    @Override
-    public void notifyUpdate(Message m) {
-        for (Observer observer : observers) {
-            observer.update(m);
+        for (Observer observer : observers.get(event)) {
+            observer.trigger(message);
         }
     }
 }

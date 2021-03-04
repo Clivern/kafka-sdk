@@ -108,6 +108,12 @@ coverage:
 	$(GRADLEW) jacocoTestReport --info
 
 
+## updatePom: Update .pom and .xml file
+updatePom:
+	@echo ">> ============= Gradle update pom ============= <<"
+	$(GRADLEW) updatePom
+
+
 ## init_prop: Create gradle.properties if not exists
 init_prop:
 	@echo ">> ============= Create gradle.properties file ============= <<"

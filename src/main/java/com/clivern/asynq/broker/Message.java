@@ -16,17 +16,23 @@ package com.clivern.asynq.broker;
 /** Message Class */
 public class Message {
 
-    /**
-     * Set Message
-     *
-     * @param message the message
-     */
-    public void setMessage(String message);
+    private String content;
 
     /**
-     * Get Message
+     * Class Constructor
      *
-     * @return the message
+     * @param content the message content
      */
-    public String getMessage();
+    public Message(String content) {
+        this.content = content;
+    }
+
+    /**
+     * Get Message Content
+     *
+     * @return the message content
+     */
+    public String getContent() {
+        return this.content;
+    }
 }

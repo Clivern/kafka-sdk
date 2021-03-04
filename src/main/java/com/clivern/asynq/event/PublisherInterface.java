@@ -11,7 +11,24 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.asynq.broker;
+package com.clivern.asynq.event;
 
-/** Redis Interface */
-public class Redis implements MessageBrokerInterface {}
+/** PublisherInterface interface */
+public interface PublisherInterface {
+
+    /**
+     * Attach observer to an event
+     *
+     * @param event the event
+     * @param observer the new observer
+     */
+    public void attach(String event, Observer observer);
+
+    /**
+     * Notify event observers
+     *
+     * @param event the event
+     * @param message the message
+     */
+    public void notify(String event, Message message);
+}
