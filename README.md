@@ -1,5 +1,5 @@
 <p align="center">
-	<img alt="Asynq Logo" src="https://raw.githubusercontent.com/Clivern/Asynq/main/images/logo.png" height="150" />
+	<img alt="Asynq Logo" src="/images/logo.png" height="150" />
 	<h3 align="center">Asynq</h3>
 	<p align="center">Simple, reliable and efficient distributed task queue in Java.</p>
 	<p align="center">
