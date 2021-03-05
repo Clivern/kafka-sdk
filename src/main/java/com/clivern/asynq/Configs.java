@@ -15,6 +15,7 @@ package com.clivern.asynq;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Properties;
 import java.util.Set;
 
@@ -78,7 +79,7 @@ public class Configs {
     }
 
     /**
-     * Load from a properties file
+     * Create an instance from properties file
      *
      * @param filePath the file path
      * @return Configs
@@ -90,5 +91,21 @@ public class Configs {
         p.load(reader);
 
         return new Configs(p);
+    }
+
+    /**
+     * Create an instance from hashmap
+     *
+     * @param map the key value pairs
+     * @return Configs
+     */
+    public static Configs fromMap(HashMap<String, String> map) {
+        Configs config = new Configs();
+
+        for (String key : map.keySet()) {
+            config.set(key, map.get(key));
+        }
+
+        return config;
     }
 }

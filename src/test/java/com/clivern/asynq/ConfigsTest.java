@@ -16,6 +16,7 @@ package com.clivern.asynq;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.HashMap;
 import org.junit.Test;
 
 /** Configs Test Cases */
@@ -29,7 +30,13 @@ public class ConfigsTest {
 
         configs = Configs.fromFile("src/test/resources/config.properties");
         assertEquals(configs.get("key1"), "value1");
-
         assertEquals(configs.get("not_found", "missing"), "missing");
+
+        HashMap<String, String> map = new HashMap<String, String>();
+        map.put("Key1", "Value1");
+        map.put("Key2", "Value2");
+
+        configs = Configs.fromMap(map);
+        assertEquals(configs.get("Key1"), "Value1");
     }
 }
