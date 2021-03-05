@@ -11,28 +11,25 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.asynq.broker;
+package com.clivern.asynq;
 
-/** ConsumerInterface Interface */
-public interface ConsumerInterface {
+import static org.junit.Assert.*;
 
-    /**
-     * Execute the consumer
-     *
-     * @param message the message
-     */
-    public void execute(Message message);
+import java.io.IOException;
+import org.junit.Test;
 
-    /**
-     * Post Execute
-     *
-     * @param broker the message broker
-     */
-    public void postExecute(MessageBrokerInterface broker);
+/** Configs Test Cases */
+public class ConfigsTest {
 
-    /** On Error */
-    public void onError();
+    @Test
+    public void testConfigs() throws IOException {
+        Configs configs = new Configs();
+        configs.set("key4", "value4");
+        assertEquals(configs.get("key4"), "value4");
 
-    /** On Success */
-    public void onSuccess();
+        configs = Configs.fromFile("src/test/resources/config.properties");
+        assertEquals(configs.get("key1"), "value1");
+
+        assertEquals(configs.get("not_found", "missing"), "missing");
+    }
 }

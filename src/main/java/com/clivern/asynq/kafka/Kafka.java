@@ -11,18 +11,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.asynq;
+package com.clivern.asynq.kafka;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-/** Asynq Test Cases */
-public class AsynqTest {
-
-    @Test
-    public void testHello() {
-        Asynq asynq = new Asynq();
-        assertEquals("Hello", "Hello");
-    }
-}
+/** Kafka Class */
+public class Kafka {}

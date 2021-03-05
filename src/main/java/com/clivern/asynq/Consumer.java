@@ -13,5 +13,5 @@
  */
 package com.clivern.asynq;
 
-/** Listener Class */
-public class Listener {}
+/** Consumer Class */
+public class Consumer {}

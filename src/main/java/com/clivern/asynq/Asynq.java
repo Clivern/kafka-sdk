@@ -16,7 +16,21 @@ package com.clivern.asynq;
 /** Asynq Class */
 public class Asynq {
 
-    public String hello() {
-        return "Hello World";
+    /**
+     * Get a New Producer Instance
+     *
+     * @return producer instance
+     */
+    public Producer newProducer() {
+        return new Producer();
+    }
+
+    /**
+     * Get a New Consumer Instance
+     *
+     * @return consumer instance
+     */
+    public Consumer newConsumer() {
+        return new Consumer();
     }
 }
