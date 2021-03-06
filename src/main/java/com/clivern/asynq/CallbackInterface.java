@@ -13,27 +13,14 @@
  */
 package com.clivern.asynq;
 
-import java.util.Set;
+/** CallbackInterface Interface */
+@FunctionalInterface
+public interface CallbackInterface<T> {
 
-/** Consumer Class */
-public class Consumer {
-    public Consumer handler(CallbackInterface callback) {
-        return this;
-    }
-
-    public Consumer subscribe(Set<String> topics) {
-        return this;
-    }
-
-    public Consumer onSuccess(CallbackInterface callback) {
-        return this;
-    }
-
-    public Consumer onFailure(CallbackInterface callback) {
-        return this;
-    }
-
-    public Consumer unsubscribe() {
-        return this;
-    }
+    /**
+     * Trigger callback
+     *
+     * @param object the object
+     */
+    public void trigger(T object);
 }
