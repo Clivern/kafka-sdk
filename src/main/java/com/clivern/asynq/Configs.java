@@ -79,6 +79,15 @@ public class Configs {
     }
 
     /**
+     * Get Properties
+     *
+     * @return the properties
+     */
+    public Properties getProperties() {
+        return this.properties;
+    }
+
+    /**
      * Create an instance from properties file
      *
      * @param filePath the file path
