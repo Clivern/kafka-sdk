@@ -13,5 +13,54 @@
  */
 package com.clivern.asynq;
 
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+
 /** Producer Class */
-public class Producer {}
+public class Producer {
+
+    private Configs configs;
+
+    private KafkaProducer<String, String> producer;
+
+    /**
+     * Class Constructor
+     *
+     * @param configs a config instance
+     */
+    public Producer(Configs configs) {
+        this.configs = configs;
+        this.producer = new KafkaProducer<>(this.configs.getProperties());
+    }
+
+    /**
+     * Send a record
+     *
+     * @param record a record to send
+     * @return an instance of producer
+     */
+    public Producer send(ProducerRecord<String, String> record) {
+        this.producer.send(record);
+        return this;
+    }
+
+    /**
+     * Flush all records
+     *
+     * @return an instance of producer
+     */
+    public Producer flush() {
+        this.producer.flush();
+        return this;
+    }
+
+    /**
+     * Close Connection
+     *
+     * @return an instance of producer
+     */
+    public Producer close() {
+        this.producer.close();
+        return this;
+    }
+}

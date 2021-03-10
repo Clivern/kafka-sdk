@@ -7,3 +7,5 @@ build
 gradle.properties
 
 secring.gpg
+
+src/main/java/com/clivern/asynq/App.java

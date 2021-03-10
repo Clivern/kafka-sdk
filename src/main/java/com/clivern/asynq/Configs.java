@@ -60,13 +60,23 @@ public class Configs {
     }
 
     /**
+     * Set a property value (allows objects as values)
+     *
+     * @param key the property key
+     * @param value the property value
+     */
+    public void put(String key, Object value) {
+        this.properties.put(key, value);
+    }
+
+    /**
      * Set a property value
      *
      * @param key the property key
      * @param value the property value
      */
     public void set(String key, String value) {
-        this.properties.setProperty(key, value);
+        this.properties.put(key, value);
     }
 
     /**

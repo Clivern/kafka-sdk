@@ -19,18 +19,20 @@ public class Asynq {
     /**
      * Get a New Producer Instance
      *
+     * @param configs a config instance
      * @return producer instance
      */
-    public Producer newProducer() {
-        return new Producer();
+    public Producer newProducer(Configs configs) {
+        return new Producer(configs);
     }
 
     /**
      * Get a New Consumer Instance
      *
+     * @param configs a config instance
      * @return consumer instance
      */
-    public Consumer newConsumer() {
-        return new Consumer();
+    public Consumer newConsumer(Configs configs) {
+        return new Consumer(configs);
     }
 }

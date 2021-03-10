@@ -17,6 +17,18 @@ import java.util.Set;
 
 /** Consumer Class */
 public class Consumer {
+
+    private Configs configs;
+
+    /**
+     * Class Constructor
+     *
+     * @param configs a config instance
+     */
+    public Consumer(Configs configs) {
+        this.configs = configs;
+    }
+
     public Consumer handler(CallbackInterface callback) {
         return this;
     }

@@ -22,7 +22,6 @@ public class AsynqTest {
 
     @Test
     public void testHello() {
-        Asynq asynq = new Asynq();
         assertEquals("Hello", "Hello");
     }
 }
