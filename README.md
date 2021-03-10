@@ -143,9 +143,9 @@ try {
 
 ## Versioning
 
-For transparency into our release cycle and in striving to maintain backward compatibility, Kafka-sdk is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
+For transparency into our release cycle and in striving to maintain backward compatibility, kafka-sdk is maintained under the [Semantic Versioning guidelines](https://semver.org/) and release process is predictable and business-friendly.
 
-See the [Releases section of our GitHub project](https://github.com/clivern/kafka-sdk/releases) for changelogs for each release version of Kafka-sdk. It contains summaries of the most noteworthy changes made in each release.
+See the [Releases section of our GitHub project](https://github.com/clivern/kafka-sdk/releases) for changelogs for each release version of kafka-sdk. It contains summaries of the most noteworthy changes made in each release.
 
 
 ## Bug tracker
@@ -155,7 +155,7 @@ If you have any suggestions, bug reports, or annoyances please report them to ou
 
 ## Security Issues
 
-If you discover a security vulnerability within Kafka-sdk, please send an email to [hello@clivern.com](mailto:hello@clivern.com)
+If you discover a security vulnerability within kafka-sdk, please send an email to [hello@clivern.com](mailto:hello@clivern.com)
 
 
 ## Contributing
@@ -167,4 +167,4 @@ We are an open source, community-driven project so please feel free to join us. 
 
 © 2021, Clivern. Released under [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
 
-**Kafka-sdk** is authored and maintained by [@Clivern](http://github.com/clivern).
+**kafka-sdk** is authored and maintained by [@Clivern](http://github.com/clivern).
