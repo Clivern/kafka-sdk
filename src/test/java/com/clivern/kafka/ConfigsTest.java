@@ -11,7 +11,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.asynq;
+package com.clivern.kafka;
 
 import static org.junit.Assert.*;
 

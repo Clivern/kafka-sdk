@@ -11,28 +11,27 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.asynq.kafka;
+package com.clivern.kafka.event;
 
-/** ConsumerInterface Interface */
-public interface ConsumerInterface {
+import com.clivern.kafka.exception.MissingEvent;
+
+/** PublisherInterface interface */
+public interface PublisherInterface {
 
     /**
-     * Execute the consumer
+     * Attach observer to an event
      *
+     * @param event the event
+     * @param observer the new observer
+     */
+    public void attach(String event, Observer observer);
+
+    /**
+     * Notify event observers
+     *
+     * @param event the event
      * @param message the message
+     * @throws MissingEvent throws exception if event is missing
      */
-    public void execute(Message message);
-
-    /**
-     * Post Execute
-     *
-     * @param broker the message broker
-     */
-    public void postExecute(MessageBrokerInterface broker);
-
-    /** On Error */
-    public void onError();
-
-    /** On Success */
-    public void onSuccess();
+    public void notify(String event, Message message) throws MissingEvent;
 }

@@ -21,7 +21,7 @@ plugins {
   id 'com.diffplug.gradle.spotless' version '3.26.1'
 }
 
-archivesBaseName = "asynq"
+archivesBaseName = "kafka-sdk"
 version = '0.1.0'
 
 spotless {
@@ -134,11 +134,11 @@ task updatePom {
     pom {
       project {
         groupId 'com.clivern'
-        artifactId 'asynq'
+        artifactId 'kafka-sdk'
         version '0.1.0'
-        name 'Asynq'
+        name 'kafka-sdk'
         description "Simple, reliable and efficient distributed task queue in Java"
-        url 'https://github.com/Clivern/Asynq'
+        url 'https://github.com/Clivern/Kafka-sdk'
         licenses {
           license {
             name 'The Apache Software License, Version 2.0'
@@ -158,12 +158,12 @@ task updatePom {
           }
         }
         scm {
-          url 'https://github.com/clivern/asynq'
-          connection 'scm:git:git://github.com/clivern/asynq.git'
-          developerConnection 'scm:git:git@github.com:clivern/asynq.git'
+          url 'https://github.com/clivern/kafka-sdk'
+          connection 'scm:git:git://github.com/clivern/kafka-sdk.git'
+          developerConnection 'scm:git:git@github.com:clivern/kafka-sdk.git'
         }
       }
-    }.writeTo("asynq.pom").writeTo("asynq.xml")
+    }.writeTo("kafka-sdk.pom").writeTo("kafka-sdk.xml")
   }
 }
 

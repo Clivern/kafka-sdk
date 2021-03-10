@@ -1,6 +1,8 @@
-name: Asynq Package CI
+name: Kafka SDK Package CI
 
-on: [push]
+on:
+  push:
+  pull_request:
 
 jobs:
   build:

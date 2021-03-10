@@ -3,11 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.clivern</groupId>
-  <artifactId>asynq</artifactId>
+  <artifactId>kafka-sdk</artifactId>
   <version>0.1.0</version>
-  <name>Asynq</name>
+  <name>kafka-sdk</name>
   <description>Simple, reliable and efficient distributed task queue in Java</description>
-  <url>https://github.com/Clivern/Asynq</url>
+  <url>https://github.com/Clivern/Kafka-sdk</url>
   <licenses>
     <license>
       <name>The Apache Software License, Version 2.0</name>
@@ -27,9 +27,9 @@
     </developer>
   </developers>
   <scm>
-    <connection>scm:git:git://github.com/clivern/asynq.git</connection>
-    <developerConnection>scm:git:git@github.com:clivern/asynq.git</developerConnection>
-    <url>https://github.com/clivern/asynq</url>
+    <connection>scm:git:git://github.com/clivern/kafka-sdk.git</connection>
+    <developerConnection>scm:git:git@github.com:clivern/kafka-sdk.git</developerConnection>
+    <url>https://github.com/clivern/kafka-sdk</url>
   </scm>
   <dependencies>
     <dependency>

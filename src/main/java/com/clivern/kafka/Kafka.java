@@ -11,10 +11,10 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.asynq;
+package com.clivern.kafka;
 
-/** Asynq Class */
-public class Asynq {
+/** Kafka Class */
+public class Kafka {
 
     /**
      * Get a New Producer Instance

@@ -11,16 +11,28 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.asynq;
+package com.clivern.kafka.event;
 
-/** CallbackInterface Interface */
-@FunctionalInterface
-public interface CallbackInterface<T> {
+/** Message Class */
+public class Message {
+
+    private String content;
 
     /**
-     * Trigger callback
+     * Class Constructor
      *
-     * @param object the object
+     * @param content the message content
      */
-    public void trigger(T object);
+    public Message(String content) {
+        this.content = content;
+    }
+
+    /**
+     * Get Message Content
+     *
+     * @return the message content
+     */
+    public String getContent() {
+        return this.content;
+    }
 }

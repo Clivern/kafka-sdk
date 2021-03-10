@@ -11,27 +11,16 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.asynq.event;
+package com.clivern.kafka;
 
-import com.clivern.asynq.exception.MissingEvent;
-
-/** PublisherInterface interface */
-public interface PublisherInterface {
-
-    /**
-     * Attach observer to an event
-     *
-     * @param event the event
-     * @param observer the new observer
-     */
-    public void attach(String event, Observer observer);
+/** CallbackInterface Interface */
+@FunctionalInterface
+public interface CallbackInterface<T> {
 
     /**
-     * Notify event observers
+     * Trigger callback
      *
-     * @param event the event
-     * @param message the message
-     * @throws MissingEvent throws exception if event is missing
+     * @param object the object
      */
-    public void notify(String event, Message message) throws MissingEvent;
+    public void trigger(T object);
 }

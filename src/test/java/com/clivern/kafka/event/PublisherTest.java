@@ -11,11 +11,11 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.asynq.event;
+package com.clivern.kafka.event;
 
 import static org.junit.Assert.*;
 
-import com.clivern.asynq.exception.MissingEvent;
+import com.clivern.kafka.exception.MissingEvent;
 import org.junit.Test;
 
 /** Publisher Test Cases */

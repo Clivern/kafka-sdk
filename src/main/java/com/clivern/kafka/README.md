@@ -4,8 +4,8 @@ Create a topic
 
 ```java
 import java.util.HashMap;
-import com.clivern.asynq.Configs;
-import com.clivern.asynq.Utils;
+import com.clivern.kafka.Configs;
+import com.clivern.kafka.Utils;
 
 
 HashMap<String, String> map = new HashMap<String, String>();
@@ -16,9 +16,9 @@ Utils.createTopic("clivern", Configs.fromMap(map));
 Kafka Producer
 
 ```java
-import com.clivern.asynq.Configs;
-import com.clivern.asynq.Producer;
-import com.clivern.asynq.Asynq;
+import com.clivern.kafka.Configs;
+import com.clivern.kafka.Producer;
+import com.clivern.kafka.Kafka;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -29,7 +29,7 @@ configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
 
-Producer producer = (new Asynq()).newProducer(configs);
+Producer producer = (new Kafka()).newProducer(configs);
 
 for (int i = 0; i < 10; i++) {
     ProducerRecord<String, String> record =
@@ -44,10 +44,10 @@ producer.close();
 Pub/Sub Pattern
 
 ```java
-import com.clivern.asynq.event.MessagePublisher;
-import com.clivern.asynq.event.Observer;
-import com.clivern.asynq.event.Message;
-import com.clivern.asynq.exception.MissingEvent;
+import com.clivern.kafka.event.MessagePublisher;
+import com.clivern.kafka.event.Observer;
+import com.clivern.kafka.event.Message;
+import com.clivern.kafka.exception.MissingEvent;
 
 
 try {
