@@ -90,6 +90,20 @@ for (int i = 0; i < 10; i++) {
 producer.close();
 ```
 
+Kafka Consumer:
+
+```java
+import com.clivern.kafka.Configs;
+import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.StringSerializer;
+
+
+Configs configs = new Configs();
+configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+```
+
 Pub/Sub Pattern:
 
 ```java
