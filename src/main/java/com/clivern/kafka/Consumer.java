@@ -13,6 +13,7 @@
  */
 package com.clivern.kafka;
 
+import com.clivern.kafka.exception.MissingHandler;
 import java.time.Duration;
 import java.util.Collections;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -26,11 +27,11 @@ public class Consumer {
 
     private KafkaConsumer<String, String> consumer;
 
-    private CallbackInterface handlerCallback;
+    private HandlerCallbackInterface handlerCallback;
 
-    private CallbackInterface onSuccessCallback;
+    private SuccessCallbackInterface onSuccessCallback;
 
-    private CallbackInterface onFailureCallback;
+    private FailureCallbackInterface onFailureCallback;
 
     /**
      * Class Constructor
@@ -42,36 +43,79 @@ public class Consumer {
         this.consumer = new KafkaConsumer<>(this.configs.getProperties());
     }
 
-    public Consumer handler(CallbackInterface callback) {
+    /**
+     * Message Handler
+     *
+     * @param callback
+     * @return the instance
+     */
+    public Consumer handler(HandlerCallbackInterface callback) {
         this.handlerCallback = callback;
 
         return this;
     }
 
+    /**
+     * Subscribe to a Topic
+     *
+     * @param topic the kafka topic
+     * @return the instance
+     */
     public Consumer subscribe(String topic) {
         this.consumer.subscribe(Collections.singleton(topic));
 
         return this;
     }
 
-    public Consumer onSuccess(CallbackInterface callback) {
+    /**
+     * On Success Callback
+     *
+     * @param callback the callback
+     * @return the instance
+     */
+    public Consumer onSuccess(SuccessCallbackInterface callback) {
         this.onSuccessCallback = callback;
 
         return this;
     }
 
-    public Consumer onFailure(CallbackInterface callback) {
+    /**
+     * On Failure Callback
+     *
+     * @param callback the callback
+     * @return the instance
+     */
+    public Consumer onFailure(FailureCallbackInterface callback) {
         this.onFailureCallback = callback;
 
         return this;
     }
 
-    public void run() {
+    /**
+     * Run the daemon
+     *
+     * @throws MissingHandler if handler is missing
+     */
+    public void run() throws MissingHandler {
+        if (this.handlerCallback == null) {
+            throw new MissingHandler("Error! HandlerCallback is missing");
+        }
+
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
 
             for (ConsumerRecord<String, String> record : records) {
-                this.handlerCallback.trigger(record);
+                try {
+                    this.handlerCallback.trigger(record);
+
+                    if (this.onSuccessCallback != null) {
+                        this.onSuccessCallback.trigger(record);
+                    }
+                } catch (Exception e) {
+                    if (this.onFailureCallback != null) {
+                        this.onFailureCallback.trigger(record, e);
+                    }
+                }
             }
 
             consumer.commitAsync();

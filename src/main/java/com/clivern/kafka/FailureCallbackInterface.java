@@ -13,14 +13,14 @@
  */
 package com.clivern.kafka;
 
-/** CallbackInterface Interface */
+/** FailureCallbackInterface Interface */
 @FunctionalInterface
-public interface CallbackInterface<T> {
+public interface FailureCallbackInterface<T> {
 
     /**
      * Trigger callback
      *
      * @param object the object
      */
-    public void trigger(T object);
+    public void trigger(T object, Exception e);
 }
