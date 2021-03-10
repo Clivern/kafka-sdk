@@ -94,14 +94,29 @@ Kafka Consumer:
 
 ```java
 import com.clivern.kafka.Configs;
-import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.common.serialization.StringSerializer;
+import com.clivern.kafka.Consumer;
+import com.clivern.kafka.Kafka;
+import com.clivern.kafka.CallbackInterface;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.common.serialization.StringDeserializer;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 
 
 Configs configs = new Configs();
-configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+
+configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+configs.put(ConsumerConfig.GROUP_ID_CONFIG, "clivern");
+configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+
+Consumer consumer = (new Kafka()).newConsumer(configs);
+
+CallbackInterface<ConsumerRecord<String, String>> callback = (record) -> {
+    System.out.println("Message received: " + record.value());
+};
+
+consumer.subscribe("clivern")
+        .handler(callback).run(true);
 ```
 
 Pub/Sub Pattern:

@@ -13,12 +13,24 @@
  */
 package com.clivern.kafka;
 
-import java.util.Set;
+import java.time.Duration;
+import java.util.Collections;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.apache.kafka.clients.consumer.ConsumerRecords;
+import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 /** Consumer Class */
 public class Consumer {
 
     private Configs configs;
+
+    private KafkaConsumer<String, String> consumer;
+
+    private CallbackInterface handlerCallback;
+
+    private CallbackInterface onSuccessCallback;
+
+    private CallbackInterface onFailureCallback;
 
     /**
      * Class Constructor
@@ -27,25 +39,48 @@ public class Consumer {
      */
     public Consumer(Configs configs) {
         this.configs = configs;
+        this.consumer = new KafkaConsumer<>(this.configs.getProperties());
     }
 
     public Consumer handler(CallbackInterface callback) {
+        this.handlerCallback = callback;
+
         return this;
     }
 
-    public Consumer subscribe(Set<String> topics) {
+    public Consumer subscribe(String topic) {
+        this.consumer.subscribe(Collections.singleton(topic));
+
         return this;
     }
 
     public Consumer onSuccess(CallbackInterface callback) {
+        this.onSuccessCallback = callback;
+
         return this;
     }
 
     public Consumer onFailure(CallbackInterface callback) {
+        this.onFailureCallback = callback;
+
         return this;
     }
 
-    public Consumer unsubscribe() {
+    public Consumer run(Boolean daemon) {
+        while (true) {
+            ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
+
+            for (ConsumerRecord<String, String> record : records) {
+                this.handlerCallback.trigger(record);
+            }
+
+            consumer.commitAsync();
+
+            if (!daemon) {
+                break;
+            }
+        }
+
         return this;
     }
 }

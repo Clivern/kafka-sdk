@@ -1,6 +1,6 @@
 ### Usage
 
-Create a topic
+Create a Kafka Topic:
 
 ```java
 import java.util.HashMap;
@@ -13,7 +13,7 @@ map.put("bootstrap.servers", "localhost:9092");
 Utils.createTopic("clivern", Configs.fromMap(map));
 ```
 
-Kafka Producer
+Kafka Producer:
 
 ```java
 import com.clivern.kafka.Configs;
@@ -41,7 +41,36 @@ for (int i = 0; i < 10; i++) {
 producer.close();
 ```
 
-Pub/Sub Pattern
+Kafka Consumer:
+
+```java
+import com.clivern.kafka.Configs;
+import com.clivern.kafka.Consumer;
+import com.clivern.kafka.Kafka;
+import com.clivern.kafka.CallbackInterface;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.apache.kafka.common.serialization.StringDeserializer;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
+
+
+Configs configs = new Configs();
+
+configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
+configs.put(ConsumerConfig.GROUP_ID_CONFIG, "clivern");
+configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+
+Consumer consumer = (new Kafka()).newConsumer(configs);
+
+CallbackInterface<ConsumerRecord<String, String>> callback = (record) -> {
+    System.out.println("Message received: " + record.value());
+};
+
+consumer.subscribe("clivern")
+        .handler(callback).run(true);
+```
+
+Pub/Sub Pattern:
 
 ```java
 import com.clivern.kafka.event.MessagePublisher;
