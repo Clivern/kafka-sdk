@@ -66,7 +66,7 @@ public class Consumer {
         return this;
     }
 
-    public Consumer run(Boolean daemon) {
+    public void run() {
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(100));
 
@@ -75,12 +75,6 @@ public class Consumer {
             }
 
             consumer.commitAsync();
-
-            if (!daemon) {
-                break;
-            }
         }
-
-        return this;
     }
 }

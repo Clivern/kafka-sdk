@@ -59,6 +59,8 @@ configs.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 configs.put(ConsumerConfig.GROUP_ID_CONFIG, "clivern");
 configs.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
 configs.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
+configs.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+configs.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 
 Consumer consumer = (new Kafka()).newConsumer(configs);
 
