@@ -99,6 +99,7 @@ import com.clivern.kafka.Kafka;
 import com.clivern.kafka.HandlerCallbackInterface;
 import com.clivern.kafka.FailureCallbackInterface;
 import com.clivern.kafka.SuccessCallbackInterface;
+import com.clivern.kafka.exception.MissingHandler;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
