@@ -9,3 +9,5 @@ gradle.properties
 secring.gpg
 
 src/main/java/com/clivern/kafka/App.java
+
+gnupg_secring.gpg

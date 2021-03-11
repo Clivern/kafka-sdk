@@ -46,7 +46,7 @@ public class Consumer {
     /**
      * Message Handler
      *
-     * @param callback
+     * @param callback the handler
      * @return the instance
      */
     public Consumer handler(HandlerCallbackInterface callback) {
@@ -70,7 +70,7 @@ public class Consumer {
     /**
      * On Success Callback
      *
-     * @param callback the callback
+     * @param callback the success callback
      * @return the instance
      */
     public Consumer onSuccess(SuccessCallbackInterface callback) {
@@ -82,7 +82,7 @@ public class Consumer {
     /**
      * On Failure Callback
      *
-     * @param callback the callback
+     * @param callback the failure callback
      * @return the instance
      */
     public Consumer onFailure(FailureCallbackInterface callback) {

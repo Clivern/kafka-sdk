@@ -21,6 +21,7 @@ public interface HandlerCallbackInterface<T> {
      * Trigger callback
      *
      * @param object the object
+     * @throws Exception if handler failed
      */
     public void trigger(T object) throws Exception;
 }

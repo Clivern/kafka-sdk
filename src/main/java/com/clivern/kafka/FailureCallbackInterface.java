@@ -21,6 +21,7 @@ public interface FailureCallbackInterface<T> {
      * Trigger callback
      *
      * @param object the object
+     * @param e the exception
      */
     public void trigger(T object, Exception e);
 }
