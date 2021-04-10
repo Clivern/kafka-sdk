@@ -11,14 +11,12 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.bucket;
+package com.clivern.asynq;
 
-/** Node interface */
-public interface Node {
-    /**
-     * Get Key
-     *
-     * @return the key
-     */
-    String getKey();
+/** Asynq Class */
+public class Asynq {
+
+    public String hello() {
+        return "Hello World";
+    }
 }

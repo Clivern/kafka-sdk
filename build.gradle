@@ -21,7 +21,7 @@ plugins {
   id 'com.diffplug.gradle.spotless' version '3.26.1'
 }
 
-archivesBaseName = "bucket"
+archivesBaseName = "asynq"
 version = '0.1.0'
 
 spotless {
@@ -134,11 +134,11 @@ task updatePom {
     pom {
       project {
         groupId 'com.clivern'
-        artifactId 'bucket'
+        artifactId 'asynq'
         version '0.1.0'
-        name 'Bucket'
-        description "Consistent Hashing Package for Scalable Data Distribution"
-        url 'https://github.com/Clivern/Bucket'
+        name 'Asynq'
+        description "Simple, reliable and efficient distributed task queue in Java"
+        url 'https://github.com/Clivern/Asynq'
         licenses {
           license {
             name 'The Apache Software License, Version 2.0'
@@ -158,12 +158,12 @@ task updatePom {
           }
         }
         scm {
-          url 'https://github.com/clivern/bucket'
-          connection 'scm:git:git://github.com/clivern/bucket.git'
-          developerConnection 'scm:git:git@github.com:clivern/bucket.git'
+          url 'https://github.com/clivern/asynq'
+          connection 'scm:git:git://github.com/clivern/asynq.git'
+          developerConnection 'scm:git:git@github.com:clivern/asynq.git'
         }
       }
-    }.writeTo("bucket.pom").writeTo("bucket.xml")
+    }.writeTo("asynq.pom").writeTo("asynq.xml")
   }
 }
 

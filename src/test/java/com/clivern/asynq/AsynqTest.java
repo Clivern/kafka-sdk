@@ -11,9 +11,18 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.clivern.bucket;
+package com.clivern.asynq;
 
-/** Hash Function Interface */
-public interface HashFunction {
-    long hash(String key);
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+/** Asynq Test Cases */
+public class AsynqTest {
+
+    @Test
+    public void testHello() {
+        Asynq asynq = new Asynq();
+        assertEquals(asynq.hello(), "Hello World");
+    }
 }

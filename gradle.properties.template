@@ -1,9 +1,9 @@
 POM_GROUP_ID=com.clivern
-POM_ARTIFACT_ID=bucket
+POM_ARTIFACT_ID=asynq
 POM_VERSION=0.1.0
-POM_NAME=Bucket
-POM_DESCRIPTION=Consistent Hashing Package for Scalable Data Distribution
-POM_URL=https://github.com/clivern/bucket
+POM_NAME=Asynq
+POM_DESCRIPTION=Simple, reliable and efficient distributed task queue in Java
+POM_URL=https://github.com/clivern/asynq
 POM_LICENSE_NAME=The Apache Software License, Version 2.0
 POM_LICENSE_URL=http://www.apache.org/licenses/LICENSE-2.0.txt
 POM_LICENSE_DISTRIBUTION=repo
@@ -12,9 +12,9 @@ POM_DEVELOPER_NAME=Clivern
 POM_DEVELOPER_EMAIL=hello@clivern.com
 POM_DEVELOPER_URL=http://clivern.com
 POM_DEVELOPER_ROLE=Software Engineer
-POM_SCM_URL=https://github.com/clivern/bucket
-POM_SCM_CONNECTION=scm:git:git://github.com/clivern/bucket.git
-POM_SCM_DEVELOPER_CONNECTION=scm:git:git@github.com:clivern/bucket.git
+POM_SCM_URL=https://github.com/clivern/asynq
+POM_SCM_CONNECTION=scm:git:git://github.com/clivern/asynq.git
+POM_SCM_DEVELOPER_CONNECTION=scm:git:git@github.com:clivern/asynq.git
 
 NEXUS_USERNAME=nexus username here
 NEXUS_PASSWORD=nexus password here
