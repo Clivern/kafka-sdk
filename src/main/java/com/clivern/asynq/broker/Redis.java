@@ -13,5 +13,5 @@
  */
 package com.clivern.asynq.broker;
 
-/** BrokerInterface Interface */
-public interface BrokerInterface {}
+/** Redis Interface */
+public class Redis implements MessageBrokerInterface {}

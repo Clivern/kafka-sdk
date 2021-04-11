@@ -13,5 +13,5 @@
  */
 package com.clivern.asynq.broker;
 
-/** Kafka Interface */
-public class Kafka implements MessageBrokerInterface {}
+/** MessageBrokerInterface Interface */
+public interface MessageBrokerInterface {}
