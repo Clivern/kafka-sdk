@@ -59,5 +59,5 @@ public interface MessageBrokerInterface {
      * @param message the message
      * @return whether sending succeeded or not
      */
-    public Boolean send(MessageInterface message);
+    public Boolean send(Message message);
 }

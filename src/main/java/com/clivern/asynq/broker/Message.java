@@ -13,8 +13,8 @@
  */
 package com.clivern.asynq.broker;
 
-/** MessageInterface Interface */
-public interface MessageInterface {
+/** Message Class */
+public class Message {
 
     /**
      * Set Message

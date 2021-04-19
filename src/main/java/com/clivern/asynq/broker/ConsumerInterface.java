@@ -14,4 +14,25 @@
 package com.clivern.asynq.broker;
 
 /** ConsumerInterface Interface */
-public interface ConsumerInterface {}
+public interface ConsumerInterface {
+
+    /**
+     * Execute the consumer
+     *
+     * @param message the message
+     */
+    public void execute(Message message);
+
+    /**
+     * Post Execute
+     *
+     * @param broker the message broker
+     */
+    public void postExecute(MessageBrokerInterface broker);
+
+    /** On Error */
+    public void onError();
+
+    /** On Success */
+    public void onSuccess();
+}
