@@ -184,9 +184,14 @@ repositories {
 
 ext {
   junitVersion = "4.12"
+  rabbitmqVersion = "5.12.0"
+  redisVersion = "3.5.2"
 }
 
 dependencies {
+  compile 'com.rabbitmq:amqp-client:$rabbitmqVersion'
+  compile 'redis.clients:jedis:$redisVersion'
+
   // Use JUnit test framework
   testImplementation "junit:junit:$junitVersion"
 }
