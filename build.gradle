@@ -184,7 +184,7 @@ repositories {
 
 ext {
   junitVersion = "4.13.2"
-  kafkaClientsVersion = "3.2.1"
+  kafkaClientsVersion = "3.2.2"
   kafkaStreamsVersion = "3.2.1"
 }
 
